@@ -3,16 +3,17 @@
 
 int main(void){
 
-    int cedula[11];
+    char digitoChar, cedula[10];
     int digito, numeroFinal;
     int sumatoria = 0, residuo, flag = 0;
 
+    printf("Ingrese los digitos de su cedula: ");
+    scanf("%s", cedula);
+
     for (size_t i = 0; i < 9; i++){
         
-        printf("Ingrese los digitos de su cedula: \n");
-        scanf("%d", &digito);
+        digito = (int) cedula[i] - 48;
 
-        cedula[i] = digito;
         if(flag == 0){
 
             digito = digito * 2;
@@ -31,13 +32,13 @@ int main(void){
     
     residuo = sumatoria % 10;
     numeroFinal = sumatoria - (sumatoria - residuo);
-    cedula[9] = numeroFinal;
+    cedula[9] = (char) numeroFinal + 48;
 
     printf("Su cedula es: ");
     
     for (size_t j = 0; j <= 9; j++){
         
-        printf("%d", cedula[j]);
+        printf("%c", cedula[j]);
     }
     
     puts("");
